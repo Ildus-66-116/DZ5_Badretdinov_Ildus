@@ -95,76 +95,110 @@
 
 // Дополнительная задача Статистика
 
-void InputArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-        array[i] = new Random().Next(1, 32);
-}
+// void InputArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//         array[i] = new Random().Next(1, 32);
+// }
 
 
-int CountNeChetnye(int[] array)
-{
-    int countNch = 0;
-    foreach (int element in array)
+// int CountNeChetnye(int[] array)
+// {
+//     int countNch = 0;
+//     foreach (int element in array)
+//     {
+//         if (element % 2 == 1)
+//             countNch++;
+//     }
+//     return countNch;
+// }
+
+// int CountChetnye(int[] array)
+// {
+//     int countCh = 0;
+//     foreach (int element in array)
+//     {
+//         if (element % 2 == 0)
+//             countCh++;
+//     }
+//     return countCh;
+// }
+
+// int [] InputNeChet(int[] array, int[] resultNech)
+// {
+//     int j = 0;
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i] % 2 == 1) 
+//         {
+//             resultNech[j] =  array[i];
+//             j = j +1;
+//         }
+//     }
+//     return resultNech;
+// }
+
+// int [] InputChet(int[] array, int[] resultCh)
+// {
+//     int j = 0;
+//     for(int i = 0; i < array.Length; i++)
+//     {
+//         if(array[i] % 2 == 0) 
+//         {
+//             resultCh[j] =  array[i];
+//             j = j +1;
+//         }
+//     }
+//     return resultCh;
+// }
+
+// Console.Clear();
+// Console.Write("Введите кол-во элементов массива: ");
+// int n = int.Parse(Console.ReadLine()!);
+// int[] array = new int[n];
+// InputArray(array);
+// Console.WriteLine($"Массив: [{string.Join(", ", array)}]");
+// int oc3 = CountNeChetnye(array);
+// int oc4 = CountChetnye(array);
+// int[] resultNech = new int[oc3];
+// int[] resultCh = new int[oc4];
+// InputNeChet(array, resultNech);
+// Console.WriteLine($"Даты когда получил 3: [{string.Join(", ", resultNech)}]");
+// InputChet(array, resultCh);
+// Console.WriteLine($"Даты когда получил 4: [{string.Join(", ", resultCh)}]");
+// if (oc3 < oc4) Console.WriteLine("Yes");
+// else Console.WriteLine("No");
+
+
+// Ввод данных в одну строку
+// split возвращает массив строк в одну строку
+// select x переводит строчные в численные
+// ToArray возвращает массив
+// int[] size = Console.ReadLine()!.Split().Select(x => int.Parse(x)).ToArray(); 
+// Console.WriteLine(size[0] + size[1]);
+
+// Решение Дениса
+
+int n = int.Parse(Console.ReadLine()!), count = 0;
+int[] size = Console.ReadLine()!.Split().Select(x => int.Parse(x)).ToArray();
+foreach (int x in size)
     {
-        if (element % 2 == 1)
-            countNch++;
-    }
-    return countNch;
-}
-
-int CountChetnye(int[] array)
-{
-    int countCh = 0;
-    foreach (int element in array)
+    if (x % 2 == 1)
     {
-        if (element % 2 == 0)
-            countCh++;
+    Console.Write($"{x} ");
+    count++;
     }
-    return countCh;
-}
-
-int [] InputNeChet(int[] array, int[] resultNech)
-{
-    int j = 0;
-    for(int i = 0; i < array.Length; i++)
+    }
+Console.WriteLine();
+foreach (int x in size)
     {
-        if(array[i] % 2 == 1) 
-        {
-            resultNech[j] =  array[i];
-            j = j +1;
-        }
+    if (x % 2 == 0)
+    Console.Write($"{x} ");
     }
-    return resultNech;
-}
-
-int [] InputChet(int[] array, int[] resultCh)
-{
-    int j = 0;
-    for(int i = 0; i < array.Length; i++)
-    {
-        if(array[i] % 2 == 0) 
-        {
-            resultCh[j] =  array[i];
-            j = j +1;
-        }
-    }
-    return resultCh;
-}
-
-Console.Clear();
-Console.Write("Введите кол-во элементов массива: ");
-int n = int.Parse(Console.ReadLine()!);
-int[] array = new int[n];
-InputArray(array);
-Console.WriteLine($"Массив: [{string.Join(", ", array)}]");
-int oc3 = CountNeChetnye(array);
-int oc4 = CountChetnye(array);
-int[] resultNech = new int[oc3];
-int[] resultCh = new int[oc4];
-InputNeChet(array, resultNech);
-Console.WriteLine($"Даты когда получил 3: [{string.Join(", ", resultNech)}]");
-InputChet(array, resultCh);
-Console.WriteLine($"Даты когда получил 4: [{string.Join(", ", resultCh)}]");
-if (oc3 < oc4) Console.WriteLine("Yes");
-else Console.WriteLine("No");
+    Console.WriteLine();
+    if (count <= n - count)
+    Console.WriteLine("YES");
+    else
+    Console.WriteLine("NO");
+    
+    
